@@ -12,7 +12,7 @@ This is a small tool for quickly formating USB drives (/dev/da* only, currently)
 - Tkinter
 - sudo
 - xterm
-- fusefs-ext2 and fusefs-ntfs
+- fusefs-ext2 *and* fusefs-ntfs
 
 
 ## Run
