@@ -4,6 +4,7 @@ import tkinter
 from tkinter import ttk
 from tkinter import messagebox
 
+
 #empty list for drives
 drives = list()
 
@@ -32,7 +33,7 @@ def run():
             formatcmd = "sudo gpart destroy -F " + drive + "; " + "sudo gpart create -s mbr " + drive + "; " + "sudo gpart add -t ntfs " + drive + "; " + "sudo newfs " + drive + "s1"
         elif formatCombo.get() == "Ext4":
             formatcmd = "sudo gpart destroy -F " + drive + "; " + "sudo gpart create -s gpt " + drive + "; " + "sudo mke2fs -t ext4 " + drive
-        cmd = "xterm -e '" + formatcmd + "'"
+        cmd = "xterm -hold -e '" + formatcmd + "; echo Done. You can close the window." + "'"
         confirmation = tkinter.messagebox.askquestion("Confirmation", "Command: " + formatcmd)
         if confirmation == "yes":
             subprocess.Popen(cmd, shell=True)
