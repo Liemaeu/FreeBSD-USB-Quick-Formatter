@@ -1,6 +1,6 @@
 # FreeBSD-USB-Quick-Formatter
 
-This is a small tool for quickly formating USB drives (/dev/da* only, currently) on FreeBSD.
+This is a small tool for quickly formating USB drives (/dev/da* only) on FreeBSD.
 
 **Supported formats: FAT32, UFS, NTFS and Ext4**
 
