@@ -30,3 +30,5 @@ It wipes everything on the USB drive and formats it. Only one partition is creat
 ![Screenshot2](https://raw.githubusercontent.com/Liemaeu/FreeBSD-USB-Quick-Formatter/main/Screenshots/Screenshot2.png)
 
 ![Screenshot3](https://raw.githubusercontent.com/Liemaeu/FreeBSD-USB-Quick-Formatter/main/Screenshots/Screenshot3.png)
+
+![Screenshot4](https://raw.githubusercontent.com/Liemaeu/FreeBSD-USB-Quick-Formatter/main/Screenshots/Screenshot4.png)
