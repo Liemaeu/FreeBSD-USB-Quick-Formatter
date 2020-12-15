@@ -4,6 +4,7 @@ This is a small tool for quickly formating USB drives (/dev/da* only, currently)
 
 **Supported formats: FAT32, UFS, NTFS and Ext4**
 
+![Screenshot1](https://raw.githubusercontent.com/Liemaeu/FreeBSD-USB-Quick-Formatter/main/Screenshots/Screenshot1.png)
 
 ## Dependencies:
 
@@ -21,4 +22,4 @@ This is a small tool for quickly formating USB drives (/dev/da* only, currently)
 
 ## What it does:
 
-It wipes everything on the USB drive and formats it. Only one partition is created, in the selected format. It uses GPT for UFS & Ext4 and MBR for FAT32 & NTFS.
+It wipes everything on the USB drive and formats it. Only one partition is created, with the selected format. It uses GPT for UFS & Ext4 and MBR for FAT32 & NTFS.
