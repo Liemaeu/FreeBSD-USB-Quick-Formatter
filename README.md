@@ -17,3 +17,8 @@ This is a small tool for quickly formating USB drives (/dev/da* only, currently)
 ## Run:
 
 `python3 FreeBSD-USB-Quick-Formatter.py`
+
+
+## What it does:
+
+It wipes everything on the USB drive and formats it. Only one partition is created, in the selected format. It uses GPT for UFS & Ext4 and MBR for FAT32 & NTFS.
