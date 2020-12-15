@@ -19,6 +19,7 @@ This is a small tool for quickly formating USB drives (/dev/da* only) on FreeBSD
 
 `python3 FreeBSD-USB-Quick-Formatter.py`
 
+</br>
 
 **Select your drive, the format and click on "Run".**
 
