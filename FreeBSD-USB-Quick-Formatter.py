@@ -44,7 +44,7 @@ def refresh():
     drivesCombo.configure(values=drives)
 
 def driveInfo():
-    subprocess.call("xterm -hold -e 'geom disk list'", shell=True)
+    subprocess.call("xterm -sb -hold -e 'geom disk list'", shell=True)
 
 
 addDrives()
