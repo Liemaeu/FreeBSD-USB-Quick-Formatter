@@ -32,7 +32,7 @@ def run():
         elif formatCombo.get() == "NTFS":
             formatcmd = "sudo gpart destroy -F " + drive + " ; " + "sudo gpart create -s mbr " + drive + " && " + "sudo gpart add -t ntfs " + drive + " && sleep 5 && " + "sudo mkntfs --quick " + drive + "s1"
         elif formatCombo.get() == "Ext4":
-            formatcmd = "sudo gpart destroy -F " + drive + " ; " + "sudo gpart create -s gpt " + drive + " && " + "sudo gpart add -t linux-data " + drive + " && sleep 5 && " + "sudo mke2fs -t ext4 " + drive + "s1"
+            formatcmd = "sudo gpart destroy -F " + drive + " ; " + "sudo gpart create -s gpt " + drive + " && " + "sudo gpart add -t linux-data " + drive + " && sleep 5 && " + "sudo mke2fs -t ext4 " + drive + "p1"
         cmd = "xterm -hold -e '" + formatcmd + " && echo Done. You can close the window." + "'"
         confirmation = tkinter.messagebox.askquestion("Confirmation", "Command: " + formatcmd)
         if confirmation == "yes":
