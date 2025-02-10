@@ -26,14 +26,14 @@ def run():
     if drivesCombo.get() != "": #checks if a drive is selected
         drive = "/dev/" + drivesCombo.get()
         if formatCombo.get() == "FAT32":
-            formatcmd = "sudo gpart destroy -F " + drive + "; " + "sudo gpart create -s mbr " + drive + "; " + "sudo gpart add -t fat32 " + drive + "; " + "sudo newfs_msdos -F 32 " + drive + "s1"
+            formatcmd = "sudo gpart destroy -F " + drive + " ; " + "sudo gpart create -s mbr " + drive + " && " + "sudo gpart add -t fat32 " + drive + " && " + "sudo newfs_msdos -F 32 " + drive + "s1"
         elif formatCombo.get() == "UFS":
-            formatcmd = "sudo gpart destroy -F " + drive + "; " + "sudo gpart create -s gpt " + drive + "; " + "sudo gpart add -t freebsd-ufs " + drive + "; " + "sudo newfs " + drive + "p1"
+            formatcmd = "sudo gpart destroy -F " + drive + " ; " + "sudo gpart create -s gpt " + drive + " && " + "sudo gpart add -t freebsd-ufs " + drive + " && " + "sudo newfs " + drive + "p1"
         elif formatCombo.get() == "NTFS":
-            formatcmd = "sudo gpart destroy -F " + drive + "; " + "sudo gpart create -s mbr " + drive + "; " + "sudo gpart add -t ntfs " + drive + "; " + "sudo newfs " + drive + "s1"
+            formatcmd = "sudo gpart destroy -F " + drive + " ; " + "sudo gpart create -s mbr " + drive + " && " + "sudo gpart add -t ntfs " + drive + " && " + "sudo newfs " + drive + "s1"
         elif formatCombo.get() == "Ext4":
-            formatcmd = "sudo gpart destroy -F " + drive + "; " + "sudo gpart create -s gpt " + drive + "; " + "sudo mke2fs -t ext4 " + drive
-        cmd = "xterm -hold -e '" + formatcmd + "; echo Done. You can close the window." + "'"
+            formatcmd = "sudo gpart destroy -F " + drive + " ; " + "sudo gpart create -s gpt " + drive + " && " + "sudo mke2fs -t ext4 " + drive
+        cmd = "xterm -hold -e '" + formatcmd + " && echo Done. You can close the window." + "'"
         confirmation = tkinter.messagebox.askquestion("Confirmation", "Command: " + formatcmd)
         if confirmation == "yes":
             subprocess.call(cmd, shell=True)
