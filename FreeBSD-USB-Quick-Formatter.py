@@ -30,7 +30,7 @@ def run():
         elif formatCombo.get() == "UFS":
             formatcmd = "sudo gpart destroy -F " + drive + " ; " + "sudo gpart create -s gpt " + drive + " && " + "sudo gpart add -t freebsd-ufs " + drive + " && " + "sudo newfs " + drive + "p1"
         elif formatCombo.get() == "NTFS":
-            formatcmd = "sudo gpart destroy -F " + drive + " ; " + "sudo gpart create -s mbr " + drive + " && " + "sudo gpart add -t ntfs " + drive + " && " + "sudo newfs " + drive + "s1"
+            formatcmd = "sudo gpart destroy -F " + drive + " ; " + "sudo gpart create -s mbr " + drive + " && " + "sudo gpart add -t ntfs " + drive + " && " + "sudo mkntfs --quick " + drive + "s1"
         elif formatCombo.get() == "Ext4":
             formatcmd = "sudo gpart destroy -F " + drive + " ; " + "sudo gpart create -s gpt " + drive + " && " + "sudo mke2fs -t ext4 " + drive
         cmd = "xterm -hold -e '" + formatcmd + " && echo Done. You can close the window." + "'"
