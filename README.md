@@ -24,7 +24,7 @@ Please note: [mkntfs(8)](https://man.freebsd.org/cgi/man.cgi?query=mkntfs&sektio
 
 ## Run
 
-`python3 FreeBSD-USB-Quick-Formatter.py`
+`sudo python3 FreeBSD-USB-Quick-Formatter.py`
 
 </br>
 </br>
