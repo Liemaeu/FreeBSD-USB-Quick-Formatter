@@ -11,7 +11,7 @@ drives = list()
 
 root = tkinter.Tk()
 root.title("USB Quick Formatter")
-root.geometry("400x350")
+root.geometry("400x400")
 style = ttk.Style()
 style.theme_use("clam")
 
