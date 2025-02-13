@@ -26,13 +26,13 @@ def run():
     if drivesCombo.get() != "": #checks if a drive is selected
         drive = "/dev/" + drivesCombo.get()
         if formatCombo.get() == "Ext4":
-            formatcmd = "sudo gpart destroy -F " + drive + " ; " + "sudo gpart create -s gpt " + drive + " && " + "sudo gpart add -t linux-data " + drive + " && sleep 5 && " + "sudo mke2fs -t ext4 " + drive + "p1"
+            formatcmd = "sudo umount " + drive + "* ; " + "sudo gpart destroy -F " + drive + " ; " + "sudo gpart create -s gpt " + drive + " && " + "sudo gpart add -t linux-data " + drive + " && sleep 5 && " + "sudo mke2fs -t ext4 " + drive + "p1"
         elif formatCombo.get() == "FAT32":
-            formatcmd = "sudo gpart destroy -F " + drive + " ; " + "sudo gpart create -s mbr " + drive + " && " + "sudo gpart add -t fat32 " + drive + " && sleep 5 && " + "sudo newfs_msdos -F 32 " + drive + "s1"
+            formatcmd = "sudo umount " + drive + "* ; " + "sudo gpart destroy -F " + drive + " ; " + "sudo gpart create -s mbr " + drive + " && " + "sudo gpart add -t fat32 " + drive + " && sleep 5 && " + "sudo newfs_msdos -F 32 " + drive + "s1"
         elif formatCombo.get() == "NTFS":
-            formatcmd = "sudo gpart destroy -F " + drive + " ; " + "sudo gpart create -s mbr " + drive + " && " + "sudo gpart add -t ntfs " + drive + " && sleep 5 && " + "sudo mkntfs --quick " + drive + "s1"
+            formatcmd = "sudo umount " + drive + "* ; " + "sudo gpart destroy -F " + drive + " ; " + "sudo gpart create -s mbr " + drive + " && " + "sudo gpart add -t ntfs " + drive + " && sleep 5 && " + "sudo mkntfs --quick " + drive + "s1"
         elif formatCombo.get() == "UFS":
-            formatcmd = "sudo gpart destroy -F " + drive + " ; " + "sudo gpart create -s gpt " + drive + " && " + "sudo gpart add -t freebsd-ufs " + drive + " && sleep 5 && " + "sudo newfs " + drive + "p1"
+            formatcmd = "sudo umount " + drive + "* ; " + "sudo gpart destroy -F " + drive + " ; " + "sudo gpart create -s gpt " + drive + " && " + "sudo gpart add -t freebsd-ufs " + drive + " && sleep 5 && " + "sudo newfs " + drive + "p1"
         cmd = "xterm -hold -e '" + formatcmd + " && echo Done. You can close the window." + "'"
         confirmation = tkinter.messagebox.askquestion("Confirmation", "Command: " + formatcmd)
         if confirmation == "yes":
@@ -61,7 +61,6 @@ runButton = ttk.Button(root, command=run, text="Run")
 
 
 tkinter.Label(root, font=("", 6)).pack() #empty line workaround
-tkinter.Label(root, text="If the drive's filesystem is mounted: unmount it before proceeding.", font=("", 9)).pack()
 tkinter.Label(root, font=("", 8)).pack()
 drivesLabel.pack()
 drivesCombo.pack()
